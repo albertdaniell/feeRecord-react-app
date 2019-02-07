@@ -6,13 +6,19 @@ class Fee extends Component {
 
     
   render() {
+    
 
     const {feedata} = this.props;
     const totalfee=40000;
 
     const feedataList = feedata.map( fee =>{
+        if(fee.fee <totalfee){
+            fee.balance = totalfee - fee.fee
+    
+        }
+        
 return(
-
+    
 
 
     <tr>
@@ -20,6 +26,7 @@ return(
         <td>{fee.gender}</td>
         <td>{fee.student}</td>
         <td>{fee.fee}</td>
+        <td>{fee.balance}</td>
     </tr>
 
 );
@@ -33,6 +40,7 @@ return(
       <th scope="col">Gender</th>
       <th scope="col">Student name</th>
       <th scope="col">Fee</th>
+      <th scope="col">Balance</th>
     
     </tr>
   </thead>
